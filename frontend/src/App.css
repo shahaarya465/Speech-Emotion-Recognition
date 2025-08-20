@@ -1,0 +1,249 @@
+/* =================================================================
+   1. THEME DEFINITIONS (CSS VARIABLES)
+   ================================================================= */
+:root {
+  --background-color: #f0f2f5;
+  --container-background: #ffffff;
+  --primary-text-color: #1c1c1e;
+  --secondary-text-color: #555;
+  --primary-accent-color: #3f51b5;
+  --primary-accent-darker: #303f9f;
+  --choice-button-bg: #f8f9fa;
+  --choice-button-border: #e0e0e0;
+  --drop-zone-bg: transparent;
+  --drop-zone-border: #ccc;
+  --drop-zone-text: #aaa;
+  --file-display-bg: #e8f5e9;
+  --file-display-text: #2e7d32;
+  --file-display-button-bg: #c8e6c9;
+  --file-display-button-border: #a5d6a7;
+  --error-bg: #ffebee;
+  --error-text: #c62828;
+  --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --background-color: #121212;
+  --container-background: #1e1e1e;
+  --primary-text-color: #e0e0e0;
+  --secondary-text-color: #aaa;
+  --primary-accent-color: #7986cb;
+  --primary-accent-darker: #5c6bc0;
+  --choice-button-bg: #2c2c2e;
+  --choice-button-border: #444;
+  --drop-zone-bg: #2c2c2e;
+  --drop-zone-border: #555;
+  --drop-zone-text: #888;
+  --file-display-bg: #2c3e2e;
+  --file-display-text: #a5d6a7;
+  --file-display-button-bg: #38523a;
+  --file-display-button-border: #4a6d4c;
+  --error-bg: #3e2723;
+  --error-text: #ef9a9a;
+  --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* =================================================================
+   2. GENERAL STYLES (USING VARIABLES)
+   ================================================================= */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 2rem;
+}
+
+.container {
+  background: var(--container-background);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin: 1rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  color: var(--primary-accent-color);
+  margin: 0;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+/* Input Method Selection */
+.input-selection h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-text-color);
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.choice-button {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+  background-color: var(--choice-button-bg);
+  border: 2px solid var(--choice-button-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1.5;
+}
+
+.choice-button:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+  border-color: var(--primary-accent-color);
+  color: var(--primary-accent-color);
+}
+
+/* Individual Input Method Containers */
+.input-method-container {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.input-method-container h3 {
+  margin-top: 0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.action-button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: var(--primary-accent-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background: var(--primary-accent-darker);
+}
+
+.action-button.mic.stop {
+  background: #d32f2f;
+}
+
+.action-button.mic.stop:hover {
+  background: #b71c1c;
+}
+
+/* Drag & Drop Zone */
+.drop-zone {
+  border: 3px dashed var(--drop-zone-border);
+  background-color: var(--drop-zone-bg);
+  border-radius: 10px;
+  padding: 3rem;
+  text-align: center;
+  color: var(--drop-zone-text);
+  transition: all 0.3s ease;
+}
+
+.drop-zone.dragging {
+  border-color: var(--primary-accent-color);
+  background-color: var(--primary-accent-darker);
+  color: var(--container-background);
+}
+
+/* Prediction Workflow */
+.prediction-workflow {
+  margin-top: 1rem;
+}
+
+.file-display {
+  background: var(--file-display-bg);
+  color: var(--file-display-text);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.change-file-button {
+  background: var(--file-display-button-bg);
+  border: 1px solid var(--file-display-button-border);
+  color: var(--file-display-text);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.predict-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Results Card & Error Message */
+.results-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--choice-button-bg);
+  border-left: 5px solid var(--primary-accent-color);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.error-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border-radius: 8px;
+}
