@@ -8,3 +8,4 @@ tensorflow-cpu==2.19.0
 lightgbm==4.6.0
 gunicorn
 soundfile==0.13.1
+pydub
