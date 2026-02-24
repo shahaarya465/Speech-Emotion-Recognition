@@ -41,15 +41,15 @@ This project includes automated startup scripts for a simple setup.
 
 ### Prerequisites
 
--   **Python 3.12.3** must be installed and available in your system's PATH.
+-   **Python 3.12.4** must be installed and available in your system's PATH.
 -   **Node.js** (LTS version is recommended) must be installed.
 
 ### Quick Start
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/KavyaJP/SGP-I.git
-    cd SGP-I
+    git clone https://github.com/shahaarya465/Speech-Emotion-Recognition.git
+    cd Speech-Emotion-Recognition
     ```
 
 2.  **Run the Startup Script:**
